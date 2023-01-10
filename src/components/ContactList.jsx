@@ -1,8 +1,11 @@
 import React from 'react'
 import { ContactPreview } from './ContactPreview'
 
-export function ContactList() {
+export function ContactList({ contacts, onSelectContactId }) {
   return (
-    <div>ContactList</div>
+    <section className='contact-list'>
+      {contacts.map(contact => <ContactPreview key={contact._id} contact={contact} onSelectContactId={onSelectContactId}/>
+      )}
+    </section >
   )
 }

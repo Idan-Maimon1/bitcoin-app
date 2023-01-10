@@ -1,7 +1,9 @@
 import React from 'react'
 
-export function ContactPreview() {
+export function ContactPreview({ contact, onSelectContactId }) {
   return (
-    <div>ContactPreview</div>
+    <section className='contact-preview'>
+      <div onClick={() => onSelectContactId(contact._id)}>{contact.name}</div>
+    </section>
   )
 }

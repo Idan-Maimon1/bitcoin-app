@@ -1,0 +1,15 @@
+.contact-preview {
+    text-align: center;
+    min-width: 180px;
+    outline: 1px solid rgba(14, 13, 13, 0.833);
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: all 0.2s ,transform 0.6s;
+
+    &:hover {
+        transform: rotate(2deg);
+        cursor: pointer;
+        background-color: rgb(229, 83, 83);
+        color: white;
+    }
+}

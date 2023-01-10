@@ -1,0 +1,54 @@
+.contact-details {
+    position: relative;
+    height: 70vh;
+    width: 440px;
+    margin: auto;
+    margin-top: 4vh;
+    outline: 2px solid black;
+    border-radius: 10px;
+
+    .details-name {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 2px solid black;
+        font-family: sans-serif;
+        text-align: center;
+        background-color: rgb(229, 83, 83);
+        color: white;
+        padding: 20px 3vw;
+        margin: 0;
+    }
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    img {
+        margin-top: 20px;
+        filter: drop-shadow(5px 4px 40px gray);
+        width: 65%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    button {
+        all: unset;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: white;
+        color: black;
+        padding: 5px 10px;
+        outline: 2px solid black;
+        border-radius: 8px;
+        transition: 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.86);
+            transform:scale(1.1);
+        }
+    }
+}
