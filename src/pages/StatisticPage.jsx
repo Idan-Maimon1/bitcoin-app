@@ -19,10 +19,10 @@ export class StatisticPage extends Component {
     const { marketPrice, confirmedTransactions, isLoading } = this.state
     if (isLoading) return <div>Loading...</div>
     return (
-        <section className='charts-page'>
-            <Chart data={marketPrice} />
-            <Chart data={confirmedTransactions} />
-        </section>
+      <section className='charts-page'>
+        <Chart data={{ ...marketPrice, color: '#64e7bb' }} />
+        <Chart data={{ ...confirmedTransactions, color: '#7047da' }} />
+      </section>
     )
-}
+  }
 }

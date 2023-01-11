@@ -3,9 +3,9 @@ export const userService = {
 }
 
 const user = {
-    name: "Ochoa Hyde",
-    coins: 100,
-    moves: []
+    "name": "Ochoa Hyde",
+    "coins": 100,
+    "moves": "[]"
 }
 
 function getUser() {
