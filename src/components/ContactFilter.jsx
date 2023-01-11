@@ -1,9 +1,14 @@
 import { Component } from 'react'
 
-export default class ContactFilter extends Component {
+export class ContactFilter extends Component {
     render() {
         return (
-            <div>ContactFilter</div>
+            <section className='contact-filter'>
+                <div className='search-bar'>
+                    <input type="text" />
+                    <button>b</button>
+                </div>
+            </section>
         )
     }
 }

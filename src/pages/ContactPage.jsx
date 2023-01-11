@@ -38,7 +38,7 @@ export class ContactPage extends Component {
                 {selectedContactId ?
                     <ContactDetailsPage onBack={() => this.onSelectContactId(null)} contactId={selectedContactId} /> :
                     <>
-                        {/* <ContactFilter onChangeFilter={this.onChangeFilter} /> */}
+                        <ContactFilter onChangeFilter={this.onChangeFilter} />
                         <ContactList onSelectContactId={this.onSelectContactId} contacts={contacts} />
                     </>
                 }

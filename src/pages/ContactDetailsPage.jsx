@@ -17,7 +17,7 @@ export class ContactDetailsPage extends Component {
         if (!contact) return <div>Loading...</div>
         return (
             <article className='contact-details'>
-                <p className='details-name'>Name: {contact.name}</p>
+                <p className='details-name'>{contact.name}</p>
                 <div>
                     <img src={`https://robohash.org/${contact._id}`} alt="" />
                     <p className='details-phone'>Phone: {contact.phone}</p>
