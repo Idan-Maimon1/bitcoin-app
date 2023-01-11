@@ -23,7 +23,7 @@ const Outlet = ({ page }) => {
 class App extends Component {
 
   state = {
-    page: 'contacts'
+    page: 'statistics'
   }
 
   onChangePage = ({ target }) => {

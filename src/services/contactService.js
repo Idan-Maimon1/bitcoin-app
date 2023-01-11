@@ -34,6 +34,18 @@ const contacts = [
         "phone": "+1 (911) 475-2312"
     },
     {
+        "_id": "495af35664cf002ed1b47b4d",
+        "name": "Joey Geller",
+        "email": "joeygeller@renovize.com",
+        "phone": "+1 (911) 502-4832"
+    },
+    {
+        "_id": "47f0024c66d1be495af35b4d",
+        "name": "Leo Mar",
+        "email": "leomar@renovize.com",
+        "phone": "+1 (911) 345-6442"
+    },
+    {
         "_id": "5a566402abce24c6bfe4699d",
         "name": "Dominique Soto",
         "email": "dominiquesoto@renovize.com",
