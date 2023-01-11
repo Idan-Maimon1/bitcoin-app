@@ -94,6 +94,24 @@ const contacts = [
         "phone": "+1 (977) 419-3550"
     },
     {
+        "_id": "90896b13a81d08ee64028c0a",
+        "name": "Perlin Perlino",
+        "email": "perlinperlino@renovize.com",
+        "phone": "+1 (977) 557-2250"
+    },
+    {
+        "_id": "80628c086413aeeb65a908a",
+        "name": "Zoro Damar",
+        "email": "zorodamar@renovize.com",
+        "phone": "+1 (977) 851-9247"
+    },
+    {
+        "_id": "205665a9028c08eeb6413a8a",
+        "name": "Bobo Mcpopo",
+        "email": "bobomcpopo@renovize.com",
+        "phone": "+1 (977) 435-9965"
+    },
+    {
         "_id": "5a5664026c53582bb9ebe9d1",
         "name": "Nguyen Walls",
         "email": "nguyenwalls@renovize.com",
