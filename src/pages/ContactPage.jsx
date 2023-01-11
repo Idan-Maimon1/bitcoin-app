@@ -18,7 +18,7 @@ export class ContactPage extends Component {
 
     async loadContacts() {
         try {
-            const contacts = await contactService.getContacts()
+            const contacts = await contactService.getContacts(this.state.filterBy)
             this.setState({ contacts })
         }
         catch (err) {
@@ -30,8 +30,13 @@ export class ContactPage extends Component {
         this.setState({ selectedContactId: contactId })
     }
 
+
+    onChangeFilter = (filterBy) => {
+        this.setState({ filterBy }, this.loadContacts)
+    }
+
     render() {
-        const { contacts,selectedContactId } = this.state
+        const { contacts, selectedContactId } = this.state
         if (!contacts) return
         return (
             <section className='page'>
