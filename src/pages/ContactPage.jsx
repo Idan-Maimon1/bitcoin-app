@@ -2,13 +2,11 @@ import { Component } from 'react'
 import { ContactFilter } from '../components/ContactFilter'
 import { ContactList } from '../components/ContactList'
 import { contactService } from '../services/contactService'
-import { ContactDetailsPage } from './ContactDetailsPage'
 
 export class ContactPage extends Component {
 
     state = {
         contacts: null,
-        selectedContactId: null,
         filterBy: null
     }
 
@@ -26,27 +24,17 @@ export class ContactPage extends Component {
         }
     }
 
-    onSelectContactId = (contactId) => {
-        this.setState({ selectedContactId: contactId })
-    }
-
-
     onChangeFilter = (filterBy) => {
         this.setState({ filterBy }, this.loadContacts)
     }
 
     render() {
-        const { contacts, selectedContactId } = this.state
+        const { contacts } = this.state
         if (!contacts) return
         return (
             <section className='page'>
-                {selectedContactId ?
-                    <ContactDetailsPage onBack={() => this.onSelectContactId(null)} contactId={selectedContactId} /> :
-                    <>
-                        <ContactFilter onChangeFilter={this.onChangeFilter} />
-                        <ContactList onSelectContactId={this.onSelectContactId} contacts={contacts} />
-                    </>
-                }
+                <ContactFilter onChangeFilter={this.onChangeFilter} />
+                <ContactList contacts={contacts} />
             </section>
         )
     }

@@ -8,8 +8,17 @@ export class ContactDetailsPage extends Component {
     }
 
     async componentDidMount() {
-        const contact = await contactService.getContactById(this.props.contactId)
+        this.loadContact()
+    }
+    
+    async loadContact() {
+        const contactId = this.props.match.params.id
+        const contact = await contactService.getContactById(contactId)
         this.setState({ contact })
+    }
+
+    onBack = () => {
+        this.props.history.push('/')
     }
 
     render() {
@@ -23,7 +32,7 @@ export class ContactDetailsPage extends Component {
                     <p className='details-phone'>Phone: {contact.phone}</p>
                     <p className='details-email'>Email: {contact.email}</p>
                 </div>
-                <button onClick={this.props.onBack}>&#8592; &nbsp; Back &nbsp; &nbsp;</button>
+                <button onClick={this.onBack}>&#8592; &nbsp; Back &nbsp; &nbsp;</button>
             </article>
         )
     }
