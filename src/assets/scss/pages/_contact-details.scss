@@ -39,7 +39,8 @@
         margin: 5vh 0;
     }
 
-    button,a {
+    button,
+    .details-edit-btn {
         all: unset;
         cursor: pointer;
         position: absolute;
@@ -52,8 +53,27 @@
         border-radius: 8px;
         transition: 0.5s;
     }
-    a{
+
+    .details-edit-btn {
         left: unset;
         right: 15px;
+    }
+
+    .prev-next-btns {
+        position: absolute;
+        bottom: -28px;
+        font-family: sans-serif;
+        text-decoration: none;
+        font-size: 1em;
+        transition: 0.4s;
+
+        &:nth-of-type(2) {
+            right: 0;
+        }
+
+        &:hover {
+            font-size: 1.3em;
+            bottom: -36px;
+        }
     }
 }

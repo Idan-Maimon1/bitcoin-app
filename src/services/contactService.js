@@ -4,7 +4,7 @@ export const contactService = {
     deleteContact,
     saveContact,
     getEmptyContact,
-    getNextContactId
+    getNextAndPrevContactIds,
 }
 
 
@@ -182,18 +182,27 @@ function getContacts(filterBy = null) {
 
 function getContactById(id) {
     return new Promise((resolve, reject) => {
-        const f = getNextContactId(id)
         const contact = contacts.find(contact => contact._id === id)
         contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
     })
 }
 
-function getNextContactId(id) {
+
+function getNextAndPrevContactIds(id) {
     return new Promise((resolve, reject) => {
-        var nextContactIdx = +contacts.indexOf(contacts.find(contact => contact._id === id)) + 1
-        if (nextContactIdx >= contacts.length) nextContactIdx = +0
-        contacts[nextContactIdx]._id ? resolve(contacts[nextContactIdx]._id) : reject(`Contact id ${id} not found!`)
+        const contactIdx = contacts.indexOf(contacts.find(contact => contact._id === id))
+        const NextPrevIds = { prev: _getNextPrevContactId(contactIdx), next: _getNextPrevContactId(contactIdx, false) }
+        NextPrevIds ? resolve(NextPrevIds) : reject(`Contact id ${id} not found!`)
     })
+}
+
+function _getNextPrevContactId(currContactIdx, findPrevContact = true) {
+    if (findPrevContact) {
+        const prevContactIdx = currContactIdx - 1 <= -1 ? contacts.length - 1 : currContactIdx - 1
+        return contacts[prevContactIdx]._id
+    }
+    const nextContactIdx = currContactIdx + 1 >= contacts.length ? +0 : currContactIdx + 1
+    return contacts[nextContactIdx]._id
 }
 
 function deleteContact(id) {
