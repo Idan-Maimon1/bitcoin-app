@@ -31,12 +31,22 @@ export class contactEditPage extends Component {
     this.props.history.push('/')
   }
 
+  onDeleteContact = async () => {
+    contactService.deleteContact(this.state.contact._id)
+    this.props.history.push('/')
+  }
+
+  onBack = () => {
+    this.props.history.push('/')
+  }
+
   render() {
     const { contact, contactParams } = this.state
     if (!contact || !contactParams) return <div>Loading...</div>
 
     return (
       <section className='contact-edit'>
+        <button onClick={this.onBack} className='edit-back-btn'>back</button>
         <h1>{contact._id ? 'Edit' : 'Add'} Contact</h1>
         <form onSubmit={this.onSaveContact}>
           {contactParams.map(param =>
@@ -45,7 +55,10 @@ export class contactEditPage extends Component {
               <input value={contact[param]} onChange={this.handleChange} type="text" name={param} id={param} />
             </div>
           )}
-          <button>Save</button>
+          <section className='edit-form-btns'>
+            {contact._id && <button onClick={this.onDeleteContact} className='edit-delete' type="button">delete</button>}
+            <button type="submit">Save</button>
+          </section>
         </form>
       </section>
     )

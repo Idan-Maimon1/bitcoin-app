@@ -39,7 +39,7 @@
         margin: 5vh 0;
     }
 
-    button {
+    button,a {
         all: unset;
         cursor: pointer;
         position: absolute;
@@ -51,5 +51,9 @@
         outline: 2px solid black;
         border-radius: 8px;
         transition: 0.5s;
+    }
+    a{
+        left: unset;
+        right: 15px;
     }
 }

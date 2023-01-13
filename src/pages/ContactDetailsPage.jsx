@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { contactService } from '../services/contactService.js'
+import { Link } from 'react-router-dom'
 
 export class ContactDetailsPage extends Component {
 
@@ -10,7 +11,7 @@ export class ContactDetailsPage extends Component {
     async componentDidMount() {
         this.loadContact()
     }
-    
+
     async loadContact() {
         const contactId = this.props.match.params.id
         const contact = await contactService.getContactById(contactId)
@@ -32,6 +33,7 @@ export class ContactDetailsPage extends Component {
                     <p className='details-phone'>Phone: {contact.phone}</p>
                     <p className='details-email'>Email: {contact.email}</p>
                 </div>
+                <Link to={`/contact/edit/${contact._id}`} >Edit</Link>
                 <button onClick={this.onBack}>&#8592; &nbsp; Back &nbsp; &nbsp;</button>
             </article>
         )

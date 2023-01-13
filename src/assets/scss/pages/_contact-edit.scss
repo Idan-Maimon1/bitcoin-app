@@ -1,0 +1,98 @@
+.contact-edit {
+    position: relative;
+    overflow: hidden;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    width: 420px;
+    margin: auto;
+    margin-top: 10vh;
+    border: 2px solid rgba(0, 0, 0, 0.585);
+    border-radius: 10px;
+    background-color: white;
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        border-bottom: 2px solid black;
+        margin: 0;
+        padding: 2vh 0;
+        width: 100%;
+        background-color: blue;
+        color: white;
+    }
+
+    .edit-form-btns {
+        width: fit-content;
+        margin-top: 15px;
+        margin-left: auto;
+        display: flex;
+        gap: 10px;
+    }
+
+    button {
+        cursor: pointer;
+        background-color: blue;
+        color: white;
+        outline: 2px solid black;
+        border: 0;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 10px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: rgb(46, 46, 204);
+        }
+    }
+
+    .edit-delete {
+        background-color: red;
+
+        &:hover {
+            background-color: rgb(200, 18, 18);
+        }
+    }
+
+    .edit-back-btn {
+        position: absolute;
+        top: 1.5vh;
+        left: 18px;
+        background: white;
+        color: black;
+
+        &:hover {
+            background-color: white;
+        }
+    }
+
+    form {
+        flex-direction: column;
+        display: flex;
+        gap: 12px;
+        padding: 18px;
+        padding-top: 30px;
+        width: 80%;
+
+        div {
+            margin: auto;
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        label {
+            text-transform: capitalize;
+        }
+
+        input {
+            width: 60%;
+            padding: 0 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.552);
+        }
+    }
+}
