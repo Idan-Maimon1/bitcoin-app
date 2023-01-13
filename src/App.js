@@ -16,8 +16,8 @@ function App() {
         <AppHeader />
         <main>
           <Switch>
-            <Route path='/contact/:id' component={ContactDetailsPage} />
             <Route path='/contact/edit/:id?' component={contactEditPage} />
+            <Route path='/contact/:id' component={ContactDetailsPage} />
             <Route path='/contact' component={ContactPage} />
             <Route path='/statistic' component={StatisticPage} />
             <Route path='/' component={HomePage} />

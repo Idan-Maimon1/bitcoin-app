@@ -1,12 +1,29 @@
 .header-cmp {
     font-size: 1.2em;
     background-color: $clr1;
-    color: azure;
+    color: white;
     font-family: sans-serif;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-weight: bold;
     padding: 0 3vw;
     height: 10vh;
     border-bottom: 3px solid rgba(0, 0, 0, 0.451);
+
+    a {
+        font-size: 0.75em;
+        text-decoration: none;
+        color: azure;
+        margin-left: 10px;
+        transition: 0.4s;
+        padding: 5px;
+        border-radius: 6px;
+
+        &:hover,
+        &.active {
+            color: black;
+        }
+    }
+
 }

@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { ContactFilter } from '../components/ContactFilter'
 import { ContactList } from '../components/ContactList'
 import { contactService } from '../services/contactService'
@@ -35,6 +36,7 @@ export class ContactPage extends Component {
             <section className='page'>
                 <ContactFilter onChangeFilter={this.onChangeFilter} />
                 <ContactList contacts={contacts} />
+                <Link to="/contact/edit" className='add-contect-btn'>+</Link>
             </section>
         )
     }
