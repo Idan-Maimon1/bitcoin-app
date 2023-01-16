@@ -1,16 +1,24 @@
+import { storageService } from './storageService.js'
+
+const KEY = 'bitcoinUser_db'
+
 export const userService = {
     getUser
 }
 
 const user = {
-    "name": "Ochoa Hyde",
-    "coins": 100,
+    "name": "demo user",
+    "balance": 100,
     "moves": "[]"
 }
 
 function getUser() {
     return new Promise((resolve, reject) => {
-        var userToReturn = user;
-        resolve(userToReturn)
+        const userData = storageService.load(KEY) || {}
+        if (!userData.loggedInUser) {
+            userData["loggedInUser"] = user
+            storageService.store(KEY, userData)
+        }
+        resolve(userData.loggedInUser)
     })
 }

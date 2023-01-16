@@ -1,22 +1,22 @@
 import { Component } from 'react'
-import { userService } from '../services/userService'
+import { connect } from 'react-redux'
 import { bitcoinService } from '../services/bitcoinService'
+import { loadUser } from '../store/actions/userActions'
 
-export class HomePage extends Component {
+class _HomePage extends Component {
 
   state = {
-    user: null,
     bitcoinRate: 0,
   }
 
   async componentDidMount() {
-    const user = await userService.getUser()
-    this.setState({ user }, () => this.getRate())
-  }
+    const user = await this.props.loadUser()
+    this.getRate(user)
+  } 
 
-  async getRate() {
+  async getRate({balance}) {
     try {
-      const bitcoinRate = await bitcoinService.getRate(this.state.user.coins)
+      const bitcoinRate = await bitcoinService.getRate(balance)
       this.setState({ bitcoinRate })
     }
     catch (err) {
@@ -25,13 +25,14 @@ export class HomePage extends Component {
   }
 
   render() {
-    const { user, bitcoinRate } = this.state
-    if (!user || !bitcoinRate) return
+    const { bitcoinRate } = this.state
+    const { loggedInUser } = this.props
+    if (!loggedInUser || !bitcoinRate) return
     return (
       <div>
         <div>
           <h4>
-            Welcome, {user.name} you have {user.coins} coins!
+            Welcome, {loggedInUser.name} you have {loggedInUser.balance} coins!
           </h4>
           <h4>
             BTC: {bitcoinRate}
@@ -41,3 +42,16 @@ export class HomePage extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+
+  return {
+    loggedInUser: state.userModule.loggedInUser
+  }
+}
+
+const mapDispatchToProps = {
+  loadUser
+}
+
+export const HomePage = connect(mapStateToProps, mapDispatchToProps)(_HomePage)
