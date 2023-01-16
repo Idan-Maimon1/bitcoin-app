@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { contactService } from '../services/contactService.js'
 import { Link } from 'react-router-dom'
 
-export class ContactDetailsPage extends Component {
+export class ContactDetails extends Component {
 
     state = {
         contact: null,

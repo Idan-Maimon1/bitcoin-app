@@ -5,8 +5,8 @@ import { AppHeader } from './components/AppHeader'
 import { HomePage } from './pages/HomePage'
 import { ContactPage } from './pages/ContactPage'
 import { StatisticPage } from './pages/StatisticPage'
-import { ContactDetailsPage } from './pages/ContactDetailsPage'
-import { contactEditPage } from './pages/contactEditPage';
+import { ContactDetails } from './pages/ContactDetails'
+import { contactEdit } from './pages/contactEdit';
 
 function App() {
 
@@ -16,8 +16,8 @@ function App() {
         <AppHeader />
         <main>
           <Switch>
-            <Route path='/contact/edit/:id?' component={contactEditPage} />
-            <Route path='/contact/:id' component={ContactDetailsPage} />
+            <Route path='/contact/edit/:id?' component={contactEdit} />
+            <Route path='/contact/:id' component={ContactDetails} />
             <Route path='/contact' component={ContactPage} />
             <Route path='/statistic' component={StatisticPage} />
             <Route path='/' component={HomePage} />

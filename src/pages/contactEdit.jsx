@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { contactService } from '../services/contactService'
 
-export class contactEditPage extends Component {
+export class contactEdit extends Component {
 
   state = {
     contact: null,
