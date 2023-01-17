@@ -19,3 +19,13 @@ export function loadUser() {
         }
     }
 }
+export function setUser({ firstName, lastName }) {
+    return async (dispatch, getState) => {
+        try {
+            const user = await userService.setUser(firstName + ' ' + lastName)
+            dispatch({ type: 'SET_USER', user })
+        } catch (err) {
+            console.log('err:', err)
+        }
+    }
+}

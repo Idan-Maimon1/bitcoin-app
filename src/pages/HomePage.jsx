@@ -6,15 +6,21 @@ import { loadUser } from '../store/actions/userActions'
 class _HomePage extends Component {
 
   state = {
-    bitcoinRate: 0,
+    bitcoinRate: null,
+  }
+  componentDidMount() {
+    if (this.props.loggedInUser.name) {
+      this.getRate(this.props.loggedInUser.balance)
+    }
+  }
+  componentDidUpdate() {
+    const { loggedInUser } = this.props
+    if (this.state.bitcoinRate === null && loggedInUser) {
+      this.getRate(loggedInUser.balance)
+    }
   }
 
-  async componentDidMount() {
-    const user = await this.props.loadUser()
-    this.getRate(user)
-  } 
-
-  async getRate({balance}) {
+  async getRate(balance) {
     try {
       const bitcoinRate = await bitcoinService.getRate(balance)
       this.setState({ bitcoinRate })
