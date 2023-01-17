@@ -28,16 +28,16 @@ export class contactEdit extends Component {
       return
     }
     await contactService.saveContact({ ...this.state.contact })
-    this.props.history.push('/')
+    this.props.history.push('/contact')
   }
 
   onDeleteContact = async () => {
     contactService.deleteContact(this.state.contact._id)
-    this.props.history.push('/')
+    this.props.history.push('/contact')
   }
 
   onBack = () => {
-    this.props.history.push('/')
+    this.props.history.goBack()
   }
 
   render() {

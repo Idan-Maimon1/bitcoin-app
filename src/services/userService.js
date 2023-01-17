@@ -7,17 +7,25 @@ export const userService = {
     setUser
 }
 
+const move = {
+    toId: "d99e3u2ih329",
+    to: "Moshiko",
+    at: 2652712571,
+    amount: 2
+}
+
 function getUser() {
     return new Promise((resolve, reject) => {
         const userData = storageService.load(KEY) || null
         resolve(userData === null ? userData : userData.loggedInUser)
     })
 }
-function setUser(userName) {
+
+function setUser(name) {
     return new Promise((resolve, reject) => {
         const userData = {
             loggedInUser: {
-                name: userName,
+                name,
                 balance: 100,
                 moves: []
             }

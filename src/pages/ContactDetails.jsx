@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { contactService } from '../services/contactService.js'
 import { Link } from 'react-router-dom'
+import { TransferFund } from '../components/TransferFund'
 
 export class ContactDetails extends Component {
 
@@ -34,25 +35,29 @@ export class ContactDetails extends Component {
     }
 
     onBack = () => {
-        this.props.history.push('/')
+        this.props.history.goBack()
     }
 
     render() {
         const { contact, prevNextContactIds } = this.state
         if (!contact || !prevNextContactIds) return <div>Loading...</div>
         return (
-            <article className='contact-details'>
-                <p className='details-name'>{contact.name}</p>
-                <Link to={`/contact/${prevNextContactIds.prev}`} className="prev-next-btns">prev</Link>
-                <Link to={`/contact/${prevNextContactIds.next}`} className="prev-next-btns">next</Link>
-                <div>
-                    <img src={`https://robohash.org/${contact._id}`} alt="" />
-                    <p className='details-phone'>Phone: {contact.phone}</p>
-                    <p className='details-email'>Email: {contact.email}</p>
+            <section className='contact-details'>
+                <article className='contact-details-hero'>
+                    <p className='details-name'>{contact.name}</p>
+                    <div>
+                        <img src={`https://robohash.org/${contact._id}`} alt="" />
+                        <p className='details-phone'>Phone: {contact.phone}</p>
+                        <p className='details-email'>Email: {contact.email}</p>
+                    </div>
+                    <Link className='details-edit-btn' to={`/contact/edit/${contact._id}`} >Edit</Link>
+                    <button onClick={this.onBack}>&#8592; &nbsp; Back &nbsp; &nbsp;</button>
+                </article>
+                <div className="prev-next-btns">
+                    {['prev', 'next'].map(direction => <Link to={`/contact/${prevNextContactIds[direction]}`} key={direction}>{direction}</Link>)}
                 </div>
-                <Link className='details-edit-btn' to={`/contact/edit/${contact._id}`} >Edit</Link>
-                <button onClick={this.onBack}>&#8592; &nbsp; Back &nbsp; &nbsp;</button>
-            </article>
+                <TransferFund />
+            </section>
         )
     }
 }
