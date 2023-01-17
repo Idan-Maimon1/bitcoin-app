@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { contactService } from '../services/contactService.js'
 import { Link } from 'react-router-dom'
 import { TransferFund } from '../components/TransferFund'
+import { MoveList } from '../components/MoveList.jsx'
 
 export class ContactDetails extends Component {
 
@@ -57,6 +58,7 @@ export class ContactDetails extends Component {
                     {['prev', 'next'].map(direction => <Link to={`/contact/${prevNextContactIds[direction]}`} key={direction}>{direction}</Link>)}
                 </div>
                 <TransferFund contactName={contact.name} />
+                <MoveList contactName={contact.name} />
             </section>
         )
     }

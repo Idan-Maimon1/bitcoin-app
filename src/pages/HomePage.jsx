@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
+import { MoveList } from '../components/MoveList'
 import { bitcoinService } from '../services/bitcoinService'
 import { loadUser } from '../store/actions/userActions'
 
@@ -44,6 +45,7 @@ class _HomePage extends Component {
             BTC: {bitcoinRate}
           </h4>
         </div>
+        <MoveList />
       </div>
     )
   }
