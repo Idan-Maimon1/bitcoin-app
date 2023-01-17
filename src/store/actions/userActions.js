@@ -21,10 +21,10 @@ export function setUser({ firstName, lastName }) {
         }
     }
 }
-export function transferCoins(contactName, amount) {
+export function transferCoins(contact, amount) {
     return async (dispatch, getState) => {
         try {
-            const user = await userService.addMove(contactName, amount)
+            const user = await userService.addMove(contact, amount)
             dispatch({ type: 'SET_USER', user })
         } catch (err) {
             console.log('err:', err)

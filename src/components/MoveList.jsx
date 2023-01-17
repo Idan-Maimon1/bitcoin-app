@@ -1,25 +1,27 @@
-import { type } from '@testing-library/user-event/dist/type'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { transferCoins } from '../store/actions/userActions'
 
 class _MoveList extends Component {
 
-    formatDate(timeStamp) {
-        var tempDate = new Date(timeStamp).toLocaleString()
-        var date = tempDate.slice(-10, -9) + tempDate.slice(-2) + ' ' + tempDate.slice(0, -12)
-        return date
-    }
-
-    filterMoves = (moves, contactName) => {
+    filterMoves = (moves, { _id }) => {
         return moves.filter(move => {
-            return move.to.toLocaleLowerCase() === contactName.toLocaleLowerCase()
+            return move.toId === _id
         }).slice(-3)
     }
 
+    formatDate(timeStamp) {
+        const day = new Date(timeStamp).getDate()
+        const month = (new Date(timeStamp).getMonth() + 1)
+        const hour = new Date(timeStamp).getHours()
+        const minutes = new Date(timeStamp).getMinutes()
+        return day + '/' + month + ' ' + hour + ':' + minutes
+    }
+
     render() {
-        const { loggedInUser, contactName } = this.props
-        const moves = contactName ? this.filterMoves(loggedInUser.moves, contactName) : loggedInUser.moves
+        const { loggedInUser, contact } = this.props
+        if (!loggedInUser) return
+        const moves = contact ? this.filterMoves(loggedInUser.moves, contact) : loggedInUser.moves
         if (!moves || !moves.length) return
         return (
             <section className='move-list'>

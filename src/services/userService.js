@@ -21,7 +21,7 @@ function setUser(name) {
         const userData = {
             loggedInUser: {
                 name,
-                balance: 1000,
+                balance: 1000000,
                 moves: []
             }
         }
@@ -30,11 +30,11 @@ function setUser(name) {
     })
 }
 
-function addMove(contactName, amount) {
+function addMove(contact, amount) {
     return new Promise((resolve, reject) => {
         const move = {
-            toId: utilService.makeId(),
-            to: contactName,
+            toId: contact._id,
+            to: contact.name,
             at: Date.now(),
             amount,
         }
