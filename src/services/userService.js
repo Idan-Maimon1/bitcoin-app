@@ -1,17 +1,12 @@
 import { storageService } from './storageService.js'
+import { utilService } from './utilService'
 
 const KEY = 'user_db'
 
 export const userService = {
     getUser,
-    setUser
-}
-
-const move = {
-    toId: "d99e3u2ih329",
-    to: "Moshiko",
-    at: 2652712571,
-    amount: 2
+    setUser,
+    addMove
 }
 
 function getUser() {
@@ -26,10 +21,26 @@ function setUser(name) {
         const userData = {
             loggedInUser: {
                 name,
-                balance: 100,
+                balance: 1000,
                 moves: []
             }
         }
+        storageService.store(KEY, userData)
+        resolve(userData.loggedInUser)
+    })
+}
+
+function addMove(contactName, amount) {
+    return new Promise((resolve, reject) => {
+        const move = {
+            toId: utilService.makeId(),
+            to: contactName,
+            at: Date.now(),
+            amount,
+        }
+        const userData = storageService.load(KEY)
+        userData.loggedInUser.moves.push(move)
+        userData.loggedInUser.balance -= amount
         storageService.store(KEY, userData)
         resolve(userData.loggedInUser)
     })

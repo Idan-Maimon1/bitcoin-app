@@ -56,7 +56,7 @@ export class ContactDetails extends Component {
                 <div className="prev-next-btns">
                     {['prev', 'next'].map(direction => <Link to={`/contact/${prevNextContactIds[direction]}`} key={direction}>{direction}</Link>)}
                 </div>
-                <TransferFund />
+                <TransferFund contactName={contact.name} />
             </section>
         )
     }

@@ -1,4 +1,5 @@
 import { storageService } from './storageService'
+import { utilService } from './utilService'
 
 export const contactService = {
     getContacts,
@@ -235,7 +236,7 @@ function _updateContact(contact) {
 function _addContact(contact) {
     return new Promise((resolve, reject) => {
         const contacts = _loadContacts()
-        contact._id = _makeId()
+        contact._id = utilService.makeId()
         contacts.push(contact)
         storageService.store(KEY, { contacts })
         resolve(contact)
@@ -273,13 +274,4 @@ function filter(term, contacts) {
             contact.phone.toLocaleLowerCase().includes(term) ||
             contact.email.toLocaleLowerCase().includes(term)
     })
-}
-
-function _makeId(length = 10) {
-    var txt = ''
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return txt
 }
