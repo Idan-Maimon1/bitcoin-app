@@ -247,12 +247,15 @@ function saveContact(contact) {
 }
 
 function _loadContacts() {
-    var contactsToReturn = storageService.load(KEY).contacts
+    const contactsToReturn = storageService.load(KEY)
     if (!contactsToReturn) {
-        contactsToReturn = demoContacts;
-        storageService.store(KEY, { contacts: contactsToReturn })
+        var contacts = demoContacts
+        storageService.store(KEY, { contacts })
     }
-    return contactsToReturn
+    else {
+        var { contacts } = contactsToReturn
+    }
+    return contacts
 }
 
 function getEmptyContact() {

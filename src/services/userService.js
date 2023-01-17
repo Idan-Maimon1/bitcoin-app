@@ -1,6 +1,6 @@
 import { storageService } from './storageService.js'
 
-const KEY = 'bitcoinUser_db'
+const KEY = 'user_db'
 
 export const userService = {
     getUser,
