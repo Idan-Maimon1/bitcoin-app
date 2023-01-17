@@ -1,3 +1,5 @@
+import { storageService } from './storageService'
+
 export const contactService = {
     getContacts,
     getContactById,
@@ -7,9 +9,9 @@ export const contactService = {
     getNextAndPrevContactIds,
 }
 
+const KEY = 'contact_db'
 
-
-const contacts = [
+const demoContacts = [
     {
         "_id": "5a56640269f443a5d64b32ca",
         "name": "Ochoa Hyde",
@@ -172,9 +174,9 @@ function sort(arr) {
 
 function getContacts(filterBy = null) {
     return new Promise((resolve, reject) => {
-        var contactsToReturn = contacts;
+        var contactsToReturn = _loadContacts()
         if (filterBy && filterBy.term) {
-            contactsToReturn = filter(filterBy.term)
+            contactsToReturn = filter(filterBy.term, contactsToReturn)
         }
         resolve(sort(contactsToReturn))
     })
@@ -182,21 +184,22 @@ function getContacts(filterBy = null) {
 
 function getContactById(id) {
     return new Promise((resolve, reject) => {
+        const contacts = _loadContacts()
         const contact = contacts.find(contact => contact._id === id)
         contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
     })
 }
 
-
 function getNextAndPrevContactIds(id) {
     return new Promise((resolve, reject) => {
+        const contacts = _loadContacts()
         const contactIdx = contacts.indexOf(contacts.find(contact => contact._id === id))
-        const NextPrevIds = { prev: _getNextPrevContactId(contactIdx), next: _getNextPrevContactId(contactIdx, false) }
+        const NextPrevIds = { prev: _getNextPrevContactId(contacts, contactIdx), next: _getNextPrevContactId(contacts, contactIdx, false) }
         NextPrevIds ? resolve(NextPrevIds) : reject(`Contact id ${id} not found!`)
     })
 }
 
-function _getNextPrevContactId(currContactIdx, findPrevContact = true) {
+function _getNextPrevContactId(contacts, currContactIdx, findPrevContact = true) {
     if (findPrevContact) {
         const prevContactIdx = currContactIdx - 1 <= -1 ? contacts.length - 1 : currContactIdx - 1
         return contacts[prevContactIdx]._id
@@ -207,20 +210,23 @@ function _getNextPrevContactId(currContactIdx, findPrevContact = true) {
 
 function deleteContact(id) {
     return new Promise((resolve, reject) => {
+        const contacts = _loadContacts()
         const index = contacts.findIndex(contact => contact._id === id)
         if (index !== -1) {
             contacts.splice(index, 1)
+            storageService.store(KEY, { contacts })
         }
-
         resolve(contacts)
     })
 }
 
 function _updateContact(contact) {
     return new Promise((resolve, reject) => {
+        const contacts = _loadContacts()
         const index = contacts.findIndex(c => contact._id === c._id)
         if (index !== -1) {
             contacts[index] = contact
+            storageService.store(KEY, { contacts })
         }
         resolve(contact)
     })
@@ -228,14 +234,25 @@ function _updateContact(contact) {
 
 function _addContact(contact) {
     return new Promise((resolve, reject) => {
+        const contacts = _loadContacts()
         contact._id = _makeId()
         contacts.push(contact)
+        storageService.store(KEY, { contacts })
         resolve(contact)
     })
 }
 
 function saveContact(contact) {
     return contact._id ? _updateContact(contact) : _addContact(contact)
+}
+
+function _loadContacts() {
+    var contactsToReturn = storageService.load(KEY).contacts
+    if (!contactsToReturn) {
+        contactsToReturn = demoContacts;
+        storageService.store(KEY, { contacts: contactsToReturn })
+    }
+    return contactsToReturn
 }
 
 function getEmptyContact() {
@@ -246,7 +263,7 @@ function getEmptyContact() {
     }
 }
 
-function filter(term) {
+function filter(term, contacts) {
     term = term.toLocaleLowerCase()
     return contacts.filter(contact => {
         return contact.name.toLocaleLowerCase().includes(term) ||
@@ -254,8 +271,6 @@ function filter(term) {
             contact.email.toLocaleLowerCase().includes(term)
     })
 }
-
-
 
 function _makeId(length = 10) {
     var txt = ''
