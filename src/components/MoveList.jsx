@@ -11,10 +11,16 @@ class _MoveList extends Component {
         return date
     }
 
+    filterMoves = (moves, contactName) => {
+        return moves.filter(move => {
+            return move.to.toLocaleLowerCase() === contactName.toLocaleLowerCase()
+        }).slice(-3)
+    }
+
     render() {
         const { loggedInUser, contactName } = this.props
-        const moves = contactName ? loggedInUser.moves.splice(0, 3) : loggedInUser.moves
-        if (!moves.length || !loggedInUser) return
+        const moves = contactName ? this.filterMoves(loggedInUser.moves, contactName) : loggedInUser.moves
+        if (!moves || !moves.length) return
         return (
             <section className='move-list'>
                 <h1>MoveList</h1>
