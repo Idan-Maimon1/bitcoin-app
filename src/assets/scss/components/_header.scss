@@ -1,4 +1,5 @@
 .header-cmp {
+    height: 23px;
     width: 141px;
     position: fixed;
     top: 0;
@@ -9,26 +10,36 @@
     font-family: berlinSans;
     font-weight: bold;
     border-bottom-right-radius: 25px;
+    outline: 1px solid rgba(0, 0, 0, .1607843137);
     background-color: #fff;
     padding: 20px 30px 20px 20px;
-    outline: 1px solid rgba(0, 0, 0, .1607843137);
     overflow: hidden;
-    transition: 0.35s;
+    transition: height 0.4s;
 
     &:hover {
         cursor: pointer;
+        height: 192px;
 
         .nav-icon {
             transform: rotate(180deg);
         }
+
+        nav {
+            left: 0;
+        }
     }
 
     nav {
+        z-index: 101;
+        width: 191px;
+        position: absolute;
+        left: -120px;
+        top: 50px;
         display: flex;
-        margin-top: 0.8vh;
+        padding-top: 0.8vh;
         flex-direction: column;
         gap: 0.8vh;
-        transition: 0.35s;
+        transition: 0.4s;
     }
 
     .logo-cont {
@@ -38,12 +49,13 @@
     }
 
     .nav-link {
+        margin: 0 20px;
         color: black;
         text-decoration: none;
         padding: 15px 0;
         font-size: 18px;
         letter-spacing: 0.5px;
-        transition: 0.1s;
+        transition: 0.15s;
         border-bottom: 1px solid rgba(29, 47, 161, .211);
 
         &:hover {
@@ -52,7 +64,7 @@
 
         &:last-of-type {
             border: 0;
-            padding-bottom: 5px;
+            padding-bottom: 25px;
         }
     }
 
