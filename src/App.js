@@ -34,11 +34,6 @@ class _App extends Component {
             </Switch>
           </main>
           {loggedInUser === null && <SignUp />}
-          <footer>
-            <section>
-              coffeeRights 2022 &copy;
-            </section>
-          </footer>
         </div>
       </Router >
     )

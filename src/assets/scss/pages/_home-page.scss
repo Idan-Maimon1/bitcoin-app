@@ -1,0 +1,21 @@
+.home-page-top {
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    margin-top: 10vh;
+    gap: 10vw;
+
+    img {
+        width: 345px;
+    }
+}
+
+.wave-img {
+    margin-bottom: -5px;
+    background-color: white;
+}
+
+.home-page-bottom {
+    color: black;
+    background-color: white;
+}

@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import { MoveList } from '../components/MoveList'
 import { bitcoinService } from '../services/bitcoinService'
 import { loadUser } from '../store/actions/userActions'
+import wave from '../assets/imgs/wave.svg'
+import backgorundImg1 from '../assets/imgs/backgorund-img1.svg'
+import backgorundImg2 from '../assets/imgs/backgorund-img2.svg'
+import backgorundImg3 from '../assets/imgs/backgorund-img3.svg'
 
 class _HomePage extends Component {
 
@@ -37,15 +41,21 @@ class _HomePage extends Component {
     if (!loggedInUser || !bitcoinRate) return
     return (
       <div>
-        <div>
-          <h4>
-            Welcome, {loggedInUser.name} you have {loggedInUser.balance} coins!
-          </h4>
-          <h4>
-            BTC: {bitcoinRate}
-          </h4>
-        </div>
-        <MoveList />
+        <section className='home-page-top'>
+          <img src={backgorundImg1} />
+          <div>
+            <h4>
+              Welcome, {loggedInUser.name} you have {loggedInUser.balance} coins!
+            </h4>
+            <h4>
+              BTC: {bitcoinRate}
+            </h4>
+          </div>
+        </section>
+        <img src={wave} className='wave-img' />
+        <section className='home-page-bottom'>
+          <MoveList />
+        </section>
       </div>
     )
   }

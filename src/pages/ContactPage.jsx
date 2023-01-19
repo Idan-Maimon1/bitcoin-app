@@ -13,14 +13,14 @@ class _ContactPage extends Component {
 
     onChangeFilter = (filterBy) => {
         this.props.setFilterBy(filterBy)
-        this.props.loadContacts()    
+        this.props.loadContacts()
     }
 
     render() {
         const { contacts } = this.props
         if (!contacts) return <div>Loading...</div>
         return (
-            <section className='page'>
+            <section>
                 <ContactFilter onChangeFilter={this.onChangeFilter} />
                 <ContactList contacts={contacts} />
                 <Link to="/contact/edit" className='add-contect-btn'>+</Link>
