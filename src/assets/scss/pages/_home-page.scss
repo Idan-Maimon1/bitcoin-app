@@ -1,7 +1,9 @@
 .home-page-top {
+    width: calc(10vw + 600px);
     display: flex;
     align-items: center;
     padding: 0 28px;
+    margin: auto;
     margin-top: 10vh;
     gap: 10vw;
 
@@ -12,10 +14,10 @@
 
 .wave-img {
     margin-bottom: -5px;
-    background-color: white;
+    background-color: #f5f7ff;
 }
 
 .home-page-bottom {
     color: black;
-    background-color: white;
+    background-color: #f5f7ff;
 }
