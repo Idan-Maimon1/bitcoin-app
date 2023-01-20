@@ -23,14 +23,14 @@ class _MoveList extends Component {
     render() {
         const { loggedInUser, contact } = this.props
         if (!loggedInUser) return
-        const moves = contact ? this.filterMoves(loggedInUser.moves, contact) : loggedInUser.moves.slice(-6)
+        const moves = contact ? this.filterMoves(loggedInUser.moves, contact) : loggedInUser.moves.slice(-9)
         if (!moves || !moves.length) return
         return (
             <section className='move-list'>
                 <div className='move-list-header'>
                     <h1><span className="blue-color">
                         Recent</span> Moves</h1>
-                    <p>In this section you can see your last 6 approved moves</p>
+                    <p>In this section you can see your last 9 approved moves</p>
                 </div>
                 <div className='transfers-container'>
                     {moves.map(move =>
