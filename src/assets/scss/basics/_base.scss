@@ -2,18 +2,38 @@ html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    font-family: BerlinSans;
 }
 
 body {
     background-color: rgba(180, 161, 249, 0.108);
-    // background-color: $clr1;
+    background-color: $clr1;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
 main {
-    padding-top: 10vh;
-    background-color: $clr1;
+    padding-top: 6.5vh;
     color: white;
+}
+
+
+::-webkit-scrollbar {
+    background-color: #ffffff;
+    cursor: pointer !important;
+    border-radius: 50px;
+
+    &-thumb {
+        margin: -1px;
+        border: 1px solid rgba(0, 0, 0, 0.356);
+        background-color: rgba(77, 113, 255, 0.053);
+        border-radius: 50px;
+    }
+
+    &-track {
+        border-radius: 50px;
+        border: 1px solid rgba(0, 0, 0, 0.356);
+        background-color: #ffffff !important;
+    }
 }

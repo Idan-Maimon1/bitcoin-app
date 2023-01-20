@@ -40,19 +40,35 @@ class _HomePage extends Component {
     const { loggedInUser } = this.props
     if (!loggedInUser || !bitcoinRate) return
     return (
-      <div>
+      <div className='homepage'>
         <section className='home-page-top'>
           <img src={backgorundImg1} />
-          <div>
-            <h4>
-              Welcome, {loggedInUser.name} you have {loggedInUser.balance} coins!
-            </h4>
-            <h4>
-              BTC: {bitcoinRate}
-            </h4>
+          <div className='hero'>
+            <p> Hey {loggedInUser.name} </p>
+            <p>
+              Welcome to our website,
+              where you can easily transfer coins to your contacts.
+              Our user-friendly platform offers fast
+              service for managing your coins. Try us out today for seamless and
+              convenient transactions.
+              (The coins on this website dosent have any real value,
+              the rates shown on the website calculated as if 1 coin was worth 1 usd)
+            </p>
+            <p>
+              you currently have {loggedInUser.balance} coins!
+            </p>
+            <p>
+              thats worth {bitcoinRate} in BTC
+            </p>
           </div>
         </section>
-        <img src={wave} className='wave-img' />
+        <section className='home-page-center'>
+          <img src={wave} className='wave-img' />
+          <div className='hero'>
+            <img src={backgorundImg2} className='bkg-img' />
+            <p>Our website is designed to provide the best viewing experience on any device. Our responsive design automatically adjusts to fit all screen sizes, ensuring easy navigation and clear readability on desktop, tablet, and mobile.</p>
+          </div>
+        </section>
         <section className='home-page-bottom'>
           <MoveList />
         </section>

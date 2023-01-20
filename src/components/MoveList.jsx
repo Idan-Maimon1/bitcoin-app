@@ -1,40 +1,52 @@
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { transferCoins } from '../store/actions/userActions'
 import transferImg from '../assets/imgs/transfer-img.png'
 
 class _MoveList extends Component {
 
-    filterMoves = (moves, { _id }) => {
+    filterMovesById = (moves, id) => {
         return moves.filter(move => {
-            return move.toId === _id
-        }).slice(-3)
+            return move.toId === id
+        })
+    }
+
+    sortMoves(moves) {
+        return moves.sort((a, b) => b.at - a.at)
     }
 
     formatDate(timeStamp) {
-        const hour = new Date(timeStamp).getHours()
-        const minutes = new Date(timeStamp).getMinutes()
-        const day = new Date(timeStamp).getDate()
-        const month = (new Date(timeStamp).getMonth() + 1)
-        const year = (new Date(timeStamp).getYear() + '').slice(-2)
-        return hour + ':' + minutes + ' ' + day + '/' + month + '/' + year
+        const date = new Date(timeStamp)
+        const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+        const minutes = date.getMinutes()
+        const day = date.getDate()
+        const month = (date.getMonth() + 1)
+        const year = (date.getYear() + '').slice(-2)
+        return hours + ':' + minutes + ' ' + day + '/' + month + '/' + year
+    }
+
+    getMoves({ moves }, contact) {
+        return this.sortMoves(contact ?
+            this.filterMovesById(moves, contact._id).slice(-3)
+            : moves.slice(-9))
     }
 
     render() {
         const { loggedInUser, contact } = this.props
         if (!loggedInUser) return
-        const moves = contact ? this.filterMoves(loggedInUser.moves, contact) : loggedInUser.moves.slice(-9)
+        const moves = this.getMoves(loggedInUser, contact)
         if (!moves || !moves.length) return
         return (
             <section className='move-list'>
                 <div className='move-list-header'>
                     <h1><span className="blue-color">
                         Recent</span> Moves</h1>
-                    <p>In this section you can see your last 9 approved moves</p>
+                    <p>In this section you can see your last {contact ? 3 : 9} approved moves</p>
                 </div>
                 <div className='transfers-container'>
                     {moves.map(move =>
-                        <section key={move.at}>
+                        <Link to={`/contact/${move.toId}`} key={move.at}>
                             <div className='transfer-block-top'>
                                 <img src={transferImg} alt="" />
                                 <p>{move.to}</p>
@@ -44,7 +56,7 @@ class _MoveList extends Component {
                                 <p>To {move.to}</p>
                             </div>
                             <p className='transfer-date'> {this.formatDate(move.at)}</p>
-                        </section>
+                        </Link>
                     )}
                 </div>
             </section>

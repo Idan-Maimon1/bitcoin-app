@@ -5,7 +5,6 @@
     flex-direction: column;
     top: 0;
     color: #4b4a4a;
-    font-family: berlinSans;
     font-weight: bold;
     padding: 20px 30px 20px 20px;
     background-color: #fff;
@@ -49,6 +48,7 @@
     }
 
     .nav-link {
+        text-transform: capitalize;
         margin: 0 20px;
         color: #3e3e41d5;
         text-decoration: none;
