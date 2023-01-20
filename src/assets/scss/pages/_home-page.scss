@@ -50,12 +50,31 @@
 }
 
 .home-page-bottom {
-    padding: 45vh 20vw 10vh 20vw;
+    padding-top: 35vh;
+    padding-bottom: 8vh;
     color: black;
     background-color: $clr2;
+
+    .hero {
+        margin: auto;
+        padding-bottom: 18vh;
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        gap: 10vw;
+        width: calc(600px + 10vw);
+    }
+
+    img {
+        width: 345px;
+    }
 }
 
 .hero {
     letter-spacing: 0.8px;
     font-size: 12px;
+
+    .greeting {
+        text-transform: capitalize;
+    }
 }

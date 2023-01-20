@@ -44,7 +44,7 @@ class _HomePage extends Component {
         <section className='home-page-top'>
           <img src={backgorundImg1} />
           <div className='hero'>
-            <p> Hey {loggedInUser.name} </p>
+            <p className='greeting'> Hey {loggedInUser.name} </p>
             <p>
               Welcome to our website,
               where you can easily transfer coins to your contacts.
@@ -70,6 +70,17 @@ class _HomePage extends Component {
           </div>
         </section>
         <section className='home-page-bottom'>
+          <div className="hero">
+            <img src={backgorundImg3} alt="" />
+            <p>Bitcoin app is a platform where users get 100 coins when
+              signing up, and then they can transfer those coins to their contacts.
+              The contacts can be managed, including the ability to add
+              new ones, edit existing ones, or delete them.you can also
+              see the worth of your coins in BTC (Assumin 1 coin equals 1 USD).
+              You can also see your lasts transactions in the homepage and your last
+              transfer to a spesific contact in the contact page.
+            </p>
+          </div>
           <MoveList />
         </section>
       </div>
