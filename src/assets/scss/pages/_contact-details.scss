@@ -1,25 +1,27 @@
 .contact-details {
-    width: 440px;
+    background-color: $clr3;
+    min-height: 100vh;
     margin: auto;
+    padding: 0 calc((100vw - 440px)/2);
+    padding-top: 12vh;
 }
 
 .contact-details-hero {
     position: relative;
-    height: 75vh;
+    height: 74vh;
     width: 100%;
     margin: auto;
-    margin-top: 2vh;
     outline: 2px solid black;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.699);
+    background-color: $clr2;
 
     .details-name {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom: 2px solid black;
         text-align: center;
-        background-color: $clr1;
-        color: white;
+        background-color: $clr4;
+        color: $clr2;
         padding: 20px 3vw;
         margin: 0;
     }
@@ -30,6 +32,7 @@
         align-items: center;
 
         p {
+            color: $clr3;
             margin: 8px 0;
         }
     }
@@ -50,10 +53,10 @@
         position: absolute;
         top: 15px;
         left: 15px;
-        background-color: white;
-        color: black;
+        background-color: $clr2;
+        color: $clr3;
         padding: 5px 10px;
-        outline: 2px solid black;
+        outline: 2px solid $clr3;
         border-radius: 8px;
         transition: 0.5s;
     }
@@ -66,14 +69,15 @@
 }
 
 .prev-next-btns {
-    padding-top: 20px;
+    padding-top: 12px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: 1em;
+    font-size: 1.5em;
     transition: 0.4s;
 
     a {
+        color: $clr2;
         text-decoration: none;
     }
 }

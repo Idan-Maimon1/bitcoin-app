@@ -22,7 +22,7 @@
         box-shadow: 5px 4px 13px 2px #a6a4b173;
         color: rgba(253, 245, 245, 0.8588235294);
         text-decoration: none;
-        background-color: #242446;
+        background-color: $clr4;
 
         &:nth-child(even) {
             background-color: #fff;
@@ -88,5 +88,14 @@
 
     p {
         font-size: 21px;
+    }
+}
+
+.contact-details .move-list {
+    padding: 7vh 0;
+
+    a {
+        box-shadow: unset;
+        outline: 2px solid #ffffffc7;
     }
 }

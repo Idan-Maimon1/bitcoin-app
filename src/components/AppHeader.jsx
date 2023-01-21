@@ -19,7 +19,7 @@ class _AppHeader extends Component {
                 </div>
                 <nav>
                     {navRoutes.map(routeName =>
-                        <NavLink className='nav-link' exact to={'/' + (routeName === 'home' ? '' : routeName)} key={routeName}>{routeName}</NavLink>
+                        <NavLink className='nav-link' exact to={'/' + (routeName === 'home' ? '' : routeName)} key={routeName}>{routeName === 'contact' ? 'contacts' : routeName}</NavLink>
                     )}
                 </nav>
             </section>

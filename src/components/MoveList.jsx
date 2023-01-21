@@ -42,7 +42,7 @@ class _MoveList extends Component {
                 <div className='move-list-header'>
                     <h1><span className="blue-color">
                         Recent</span> Moves</h1>
-                    <p>In this section you can see your last {contact ? 3 : 9} approved moves</p>
+                    <p>In this section you can see your last {contact ? 3 : 9} approved moves {contact ? 'to ' + contact.name : ''}</p>
                 </div>
                 <div className='transfers-container'>
                     {moves.map(move =>
