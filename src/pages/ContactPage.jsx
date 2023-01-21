@@ -20,7 +20,7 @@ class _ContactPage extends Component {
         const { contacts } = this.props
         if (!contacts) return <div>Loading...</div>
         return (
-            <section>
+            <section className='contacts-page'>
                 <ContactFilter onChangeFilter={this.onChangeFilter} />
                 <ContactList contacts={contacts} />
                 <Link to="/contact/edit" className='add-contect-btn'>+</Link>

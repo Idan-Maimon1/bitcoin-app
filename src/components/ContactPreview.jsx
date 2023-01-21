@@ -7,8 +7,8 @@ export function ContactPreview({ contact }) {
   return (
     <section>
       <Link to={`/contact/${_id}`} className='contact-preview'>
-        <img src={`https://robohash.org/${_id}`} alt="" />
         <div>{name}</div>
+        <img src={`https://robohash.org/${_id}`} alt="" />
       </Link>
     </section>
   )

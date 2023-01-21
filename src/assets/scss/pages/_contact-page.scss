@@ -1,15 +1,34 @@
+.contacts-page {
+    min-height: 86vh;
+    background-color: $clr3;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    padding-bottom: 10vh;
+    padding-top: 4vh;
+
+    section {
+        z-index: 1;
+    }
+}
+
 .add-contect-btn {
     position: fixed;
-    background-color: blue;
-    outline: 3px solid white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $clr1;
+    outline: 2px solid white;
     color: white;
     text-decoration: none;
-    padding: 5px 15px;
+    height: 45px;
+    aspect-ratio: 1/1;
     border-radius: 50%;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
-    bottom: 70px;
-    right: 25px;
+    bottom: 50px;
+    right: 50px;
     transition: 0.5s;
 
     &:hover {

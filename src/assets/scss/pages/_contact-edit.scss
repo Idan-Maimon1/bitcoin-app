@@ -20,7 +20,7 @@
         margin: 0;
         padding: 2vh 0;
         width: 100%;
-        background-color: blue;
+        background-color: $clr1;
         color: white;
     }
 
@@ -34,7 +34,7 @@
 
     button {
         cursor: pointer;
-        background-color: blue;
+        background-color: $clr1;
         color: white;
         outline: 2px solid black;
         border: 0;

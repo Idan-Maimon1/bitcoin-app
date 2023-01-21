@@ -26,8 +26,9 @@ $mobile-breakpoint: 600px;
 @media screen and (max-width:$tablet-breakpoint) {
     .home-page-top {
         align-items: center;
-        padding-top: 7.5vh;
+        padding-top: 14vh;
         height: 31.4vh;
+        padding-bottom: 3vh;
 
         .hero {
             font-size: 2vw;
