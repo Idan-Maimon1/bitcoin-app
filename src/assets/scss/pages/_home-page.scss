@@ -1,11 +1,16 @@
 .home-page-top {
-    width: calc(10vw + 600px);
     display: flex;
-    align-items: center;
+    height: 46.5vh;
     padding: 0 28px;
-    margin: auto;
-    margin-top: 15vh;
-    gap: 10vw;
+    justify-content: center;
+    align-items: end;
+
+    .hero {
+        display: flex;
+        align-items: center;
+        width: calc(10vw + 600px);
+        gap: 10vw;
+    }
 
     p {
         &:nth-of-type(2) {
@@ -27,19 +32,18 @@
 
     .hero {
         position: absolute;
-        width: 32vw;
+        width: min-content;
         display: flex;
         flex-direction: column;
         gap: 4vh;
-        top: 115%;
+        top: 39%;
         left: 50%;
         background-color: transparent;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         color: #242446;
-        text-align: center;
 
         img {
-            width: 32vw;
+            width: 25vw;
         }
     }
 

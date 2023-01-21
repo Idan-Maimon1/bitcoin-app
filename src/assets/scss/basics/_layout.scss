@@ -1,15 +1,75 @@
 $wide-breakpoint: 1080px;
 $normal-breakpoint: 900px;
-$tablet-breakpoint: 768px;
+$tablet-breakpoint: 720px;
 $mobile-breakpoint: 600px;
 
-@media screen and (max-width:$wide-breakpoint) {}
+@media screen and (max-width:$wide-breakpoint) {
+    .move-list {
+        padding: 0 15vw;
+    }
+}
 
-@media screen and (max-width:$normal-breakpoint) {}
+@media screen and (max-width:$normal-breakpoint) {
+    .move-list {
+        padding: 0 10vw;
+    }
+
+    .home-page-center .hero {
+        top: 25%;
+
+        img {
+            width: 32vw;
+        }
+    }
+}
 
 @media screen and (max-width:$tablet-breakpoint) {
-    .home-page-center .hero img {
-        width: 32vw;
+    .home-page-top {
+        align-items: center;
+        padding-top: 7.5vh;
+        height: 31.4vh;
+
+        .hero {
+            font-size: 2vw;
+            gap: 5vw;
+        }
+
+        p:nth-of-type(2) {
+            margin: 1px 0 3px;
+        }
+
+        img {
+            width: 40vw;
+        }
+    }
+
+    .home-page-center {
+        p {
+            font-size: 10px;
+        }
+
+        .hero {
+            top: -5%;
+
+            img {
+                width: 50vw;
+            }
+        }
+    }
+
+    .home-page-bottom {
+        padding-top: 25vh;
+
+        .hero {
+            font-size: 2vw;
+            width: unset;
+            gap: 5vw;
+            padding: 0 10vw 12vh;
+
+            img {
+                width: 40vw;
+            }
+        }
     }
 }
 

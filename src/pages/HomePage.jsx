@@ -42,24 +42,26 @@ class _HomePage extends Component {
     return (
       <div className='homepage'>
         <section className='home-page-top'>
-          <img src={backgorundImg1} />
           <div className='hero'>
-            <p className='greeting'> Hey {loggedInUser.name} </p>
-            <p>
-              Welcome to our website,
-              where you can easily transfer coins to your contacts.
-              Our user-friendly platform offers fast
-              service for managing your coins. Try us out today for seamless and
-              convenient transactions.
-              (The coins on this website dosent have any real value,
-              the rates shown on the website calculated as if 1 coin was worth 1 usd)
-            </p>
-            <p>
-              you currently have {loggedInUser.balance} coins!
-            </p>
-            <p>
-              thats worth {bitcoinRate} in BTC
-            </p>
+            <img src={backgorundImg1} />
+            <div>
+              <p className='greeting'> Hey {loggedInUser.name} </p>
+              <p>
+                Welcome to our website,
+                where you can easily transfer coins to your contacts.
+                Our user-friendly platform offers fast
+                service for managing your coins. Try us out today for seamless and
+                convenient transactions.
+                (The coins on this website dosent have any real value,
+                the rates shown on the website calculated as if 1 coin was worth 1 usd)
+              </p>
+              <p>
+                you currently have {loggedInUser.balance} coins!
+              </p>
+              <p>
+                thats worth {bitcoinRate} in BTC
+              </p>
+            </div>
           </div>
         </section>
         <section className='home-page-center'>
