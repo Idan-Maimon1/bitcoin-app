@@ -1,30 +1,4 @@
-// Externals
-
-// Setup
-@import "setup/variables";
-@import "setup/functions";
-@import "setup/mixins";
-
-// Basics
-@import "basics/typography";
-@import "basics/base";
-@import "basics/helpers";
-@import "basics/layout";
-@import "basics/modals";
-@import "basics/animations";
-
-// Pages
-@import "pages/contact-details";
-@import "pages/contact-page";
-@import "pages/contact-edit";
-@import "pages/home-page";
-
-// Components
-@import "components/footer";
-@import "components/sign-up";
-@import "components/app-header";
-@import "components/move-list";
-@import "components/chart";
-@import "components/contact-list";
-@import "components/contact-preview";
-@import "components/contact-filter";
+@import "setup/main-setup";
+@import "pages/_main-pages.scss";
+@import "components/main-components";
+@import "basics/main-basics";
