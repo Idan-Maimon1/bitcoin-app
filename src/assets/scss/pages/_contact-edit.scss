@@ -6,37 +6,39 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 420px;
+    max-width: 420px;
+    width: 85vw;
     margin: auto;
-    margin-top: 10vh;
+    margin-top: 14vh;
     border: 2px solid rgba(0, 0, 0, 0.585);
     border-radius: 10px;
-    background-color: white;
+    background-color: $clr2;
 
     h1 {
         display: flex;
         justify-content: center;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $clr4;
         margin: 0;
         padding: 2vh 0;
         width: 100%;
-        background-color: $clr1;
-        color: white;
+        color: $clr4;
     }
 
     .edit-form-btns {
         width: fit-content;
         margin-top: 15px;
         margin-left: auto;
+        margin-right: 5%;
         display: flex;
         gap: 10px;
     }
 
     button {
+        font-family: BerlinSans;
         cursor: pointer;
-        background-color: $clr1;
-        color: white;
-        outline: 2px solid black;
+        background-color: $clr2;
+        color: $clr4;
+        outline: 2px solid $clr4;
         border: 0;
         width: fit-content;
         padding: 5px 10px;
@@ -44,15 +46,7 @@
         transition: 0.3s;
 
         &:hover {
-            background-color: rgb(46, 46, 204);
-        }
-    }
-
-    .edit-delete {
-        background-color: red;
-
-        &:hover {
-            background-color: rgb(200, 18, 18);
+            background-color: rgba(95, 95, 95, 0.271);
         }
     }
 
@@ -60,12 +54,6 @@
         position: absolute;
         top: 1.5vh;
         left: 18px;
-        background: white;
-        color: black;
-
-        &:hover {
-            background-color: white;
-        }
     }
 
     form {
@@ -74,23 +62,29 @@
         gap: 12px;
         padding: 18px;
         padding-top: 30px;
-        width: 80%;
+        width: 100%;
 
         div {
             margin: auto;
-            width: 60%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            width: 100%;
         }
 
         label {
+            width: 60px;
+            color: $clr3;
             text-transform: capitalize;
         }
 
         input {
-            width: 60%;
+            font-size: 0.95em;
+            font-family: BerlinSans;
+            width: 40%;
             padding: 0 8px;
             border-radius: 10px;
+            background-color: rgb(58, 62, 62);
+            color: $clr2;
             border: 1px solid rgba(0, 0, 0, 0.552);
         }
     }

@@ -24,6 +24,10 @@ $mobile-breakpoint: 600px;
 }
 
 @media screen and (max-width:$tablet-breakpoint) {
+    .contacts-page {
+        padding-top: 10vh;
+    }
+
     .home-page-top {
         align-items: center;
         padding-top: 14vh;
