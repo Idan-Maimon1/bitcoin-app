@@ -1,5 +1,4 @@
 import { storageService } from './storageService.js'
-import { utilService } from './utilService'
 
 const KEY = 'user_db'
 
@@ -7,6 +6,21 @@ export const userService = {
     getUser,
     setUser,
     addMove
+}
+
+const DemoUser = {
+    loggedInUser: {
+        name: "Demo User",
+        balance: 999,
+        moves: [
+            { toId: "nlCubKbebY", to: "bat man", at: 1674415586086, amount: 100 },
+            { toId: "nlCubKbebY", to: "bat man", at: 1674329000000, amount: 150 },
+            { toId: "5a56640269f443a5d64b32ca", to: "Ochoa Hyde", at: 1674415587928, amount: 20 },
+            { toId: "5a5664025f6ae9aa24a99fde", to: "Hallie Mclean", at: 1674242000000, amount: 60 },
+            { toId: "5a56640252d6acddd183d319", to: "Parsons Norris", at: 1674590000000, amount: 100 },
+            { toId: "5a56640252d6acddd183d319", to: "Parsons Norris", at: 1674605606493, amount: 25 },
+            { toId: "495af35664cf002ed1b47b4d", to: "Joey Geller", at: 1674680612774, amount: 32 }]
+    }
 }
 
 function getUser() {
@@ -18,7 +32,7 @@ function getUser() {
 
 function setUser(name) {
     return new Promise((resolve, reject) => {
-        const userData = {
+        const userData = name === 'DemoUser' ? DemoUser : {
             loggedInUser: {
                 name,
                 balance: 1000000,
