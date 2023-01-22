@@ -97,5 +97,9 @@
     a {
         box-shadow: unset;
         outline: 2px solid #ffffffc7;
+
+        &:nth-of-type(even) {
+            outline-color: $clr4;
+        }
     }
 }

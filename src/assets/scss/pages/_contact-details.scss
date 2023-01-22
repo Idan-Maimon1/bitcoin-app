@@ -2,15 +2,20 @@
     background-color: $clr3;
     min-height: 100vh;
     margin: auto;
-    padding: 0 calc((100vw - 440px)/2);
     padding-top: 12vh;
+
+    &>* {
+        margin: auto;
+        max-width: 440px;
+        width: 80% !important;
+    }
 }
 
 .contact-details-hero {
     position: relative;
-    height: 74vh;
     width: 100%;
     margin: auto;
+    padding-bottom: 6vh;
     outline: 2px solid black;
     border-radius: 10px;
     background-color: $clr2;

@@ -52,7 +52,7 @@ export class ContactDetails extends Component {
                         <p className='details-email'>Email: {contact.email}</p>
                     </div>
                     <Link className='details-edit-btn' to={`/contact/edit/${contact._id}`} >Edit</Link>
-                    <button onClick={this.onBack}>&#8592; &nbsp; Back &nbsp; &nbsp;</button>
+                    <button onClick={this.onBack} className='details-back-btn'>&#8592; <span>Back</span></button>
                 </article>
                 <div className="prev-next-btns">
                     {['prev', 'next'].map(direction => <Link to={`/contact/${prevNextContactIds[direction]}`} key={direction}>{direction}</Link>)}
