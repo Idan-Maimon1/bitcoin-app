@@ -51,8 +51,8 @@ export class contactEdit extends Component {
         <form onSubmit={this.onSaveContact}>
           {contactParams.map(param =>
             <div key={param + 7}>
-              <label htmlFor={param}>{param}</label>
-              <input value={contact[param]} onChange={this.handleChange} type="text" name={param} id={param} />
+              <label htmlFor={param}>{param} </label>
+              <input value={contact[param]} onChange={this.handleChange} type="text" name={param} id={param} placeholder={param} />
             </div>
           )}
           <section className='edit-form-btns'>
