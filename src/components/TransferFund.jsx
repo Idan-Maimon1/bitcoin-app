@@ -10,6 +10,11 @@ class _TransferFund extends Component {
     handleChange = ({ target }) => {
         const field = target.name
         const value = +target.value || ''
+        const { balance } = this.props.loggedInUser
+        if (balance < value) {
+            alert('You cannot transfer more than what you have (You currently have ' + balance + ' coins left)')
+            return
+        }
         this.setState({ [field]: value })
     }
 

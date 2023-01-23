@@ -10,7 +10,7 @@ export const userService = {
 const DemoUser = {
     loggedInUser: {
         name: "Demo User",
-        balance: 999,
+        balance: 120,
         moves: [
             { toId: "nlCubKbebY", to: "bat man", at: 1674415586086, amount: 100 },
             { toId: "nlCubKbebY", to: "bat man", at: 1674329000000, amount: 150 },
@@ -36,7 +36,7 @@ function setUser(name) {
         const userData = name === 'DemoUser' ? DemoUser : {
             loggedInUser: {
                 name,
-                balance: 1000000,
+                balance: 1000,
                 moves: []
             }
         }
