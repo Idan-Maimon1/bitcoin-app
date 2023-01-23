@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Chart } from '../components/Chart'
+import AnimatedPage from '../components/AnimatedPage'
 import { bitcoinService } from '../services/bitcoinService'
 
 export class StatisticPage extends Component {
@@ -19,13 +20,15 @@ export class StatisticPage extends Component {
     const { marketPrice, confirmedTransactions, isLoading } = this.state
     if (isLoading) return <div>Loading...</div>
     return (
-      <section className='charts-page'>
-        <h1>Statistics</h1>
-        <div className='charts-container'>
-          <Chart data={{ ...marketPrice, color: '#64e7bb' }} />
-          <Chart data={{ ...confirmedTransactions, color: '#7047da' }} />
-        </div>
-      </section>
+      <AnimatedPage>
+        <section className='charts-page'>
+          <h1>Statistics</h1>
+          <div className='charts-container'>
+            <Chart data={{ ...marketPrice, color: '#64e7bb' }} />
+            <Chart data={{ ...confirmedTransactions, color: '#7047da' }} />
+          </div>
+        </section>
+      </AnimatedPage>
     )
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { contactService } from '../services/contactService'
+import AnimatedPage from '../components/AnimatedPage'
 
 export class contactEdit extends Component {
 
@@ -45,22 +46,24 @@ export class contactEdit extends Component {
     if (!contact || !contactParams) return <div>Loading...</div>
 
     return (
-      <section className='contact-edit'>
-        <button onClick={this.onBack} className='edit-back-btn'>back</button>
-        <h1>{contact._id ? 'Edit' : 'Add'} Contact</h1>
-        <form onSubmit={this.onSaveContact}>
-          {contactParams.map(param =>
-            <div key={param + 7}>
-              <label htmlFor={param}>{param} </label>
-              <input value={contact[param]} onChange={this.handleChange} type="text" name={param} id={param} placeholder={param} />
-            </div>
-          )}
-          <section className='edit-form-btns'>
-            {contact._id && <button onClick={this.onDeleteContact} className='edit-delete' type="button">delete</button>}
-            <button type="submit">Save</button>
-          </section>
-        </form>
-      </section>
+      <AnimatedPage>
+        <section className='contact-edit'>
+          <button onClick={this.onBack} className='edit-back-btn'>back</button>
+          <h1>{contact._id ? 'Edit' : 'Add'} Contact</h1>
+          <form onSubmit={this.onSaveContact}>
+            {contactParams.map(param =>
+              <div key={param + 7}>
+                <label htmlFor={param}>{param} </label>
+                <input value={contact[param]} onChange={this.handleChange} type="text" name={param} id={param} placeholder={param} />
+              </div>
+            )}
+            <section className='edit-form-btns'>
+              {contact._id && <button onClick={this.onDeleteContact} className='edit-delete' type="button">delete</button>}
+              <button type="submit">Save</button>
+            </section>
+          </form>
+        </section>
+      </AnimatedPage>
     )
   }
 }

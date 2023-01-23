@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ContactFilter } from '../components/ContactFilter'
 import { ContactList } from '../components/ContactList'
 import { loadContacts, setFilterBy } from '../store/actions/contactActions'
+import AnimatedPage from '../components/AnimatedPage'
 
 class _ContactPage extends Component {
 
@@ -20,11 +21,13 @@ class _ContactPage extends Component {
         const { contacts } = this.props
         if (!contacts) return <div>Loading...</div>
         return (
-            <section className='contacts-page'>
-                <ContactFilter onChangeFilter={this.onChangeFilter} />
-                <ContactList contacts={contacts} />
-                <Link to="/contact/edit" className='add-contect-btn'>+</Link>
-            </section>
+            <AnimatedPage>
+                <section className='contacts-page'>
+                    <ContactFilter onChangeFilter={this.onChangeFilter} />
+                    <ContactList contacts={contacts} />
+                    <Link to="/contact/edit" className='add-contect-btn'>+</Link>
+                </section>
+            </AnimatedPage>
         )
     }
 }

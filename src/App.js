@@ -1,4 +1,4 @@
-import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Component } from 'react';
 import './assets/scss/global.scss'

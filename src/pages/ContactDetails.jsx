@@ -3,6 +3,8 @@ import { contactService } from '../services/contactService.js'
 import { Link } from 'react-router-dom'
 import { TransferFund } from '../components/TransferFund'
 import { MoveList } from '../components/MoveList.jsx'
+import AnimatedPage from '../components/AnimatedPage'
+
 
 export class ContactDetails extends Component {
 
@@ -43,23 +45,25 @@ export class ContactDetails extends Component {
         const { contact, prevNextContactIds } = this.state
         if (!contact || !prevNextContactIds) return <div>Loading...</div>
         return (
-            <section className='contact-details'>
-                <article className='contact-details-hero'>
-                    <p className='details-name'>{contact.name}</p>
-                    <div>
-                        <img src={`https://robohash.org/${contact._id}`} alt="" />
-                        <p className='details-phone'>Phone: {contact.phone}</p>
-                        <p className='details-email'>Email: {contact.email}</p>
+            <AnimatedPage>
+                <section className='contact-details'>
+                    <article className='contact-details-hero'>
+                        <p className='details-name'>{contact.name}</p>
+                        <div>
+                            <img src={`https://robohash.org/${contact._id}`} alt="" />
+                            <p className='details-phone'>Phone: {contact.phone}</p>
+                            <p className='details-email'>Email: {contact.email}</p>
+                        </div>
+                        <Link className='details-edit-btn' to={`/contact/edit/${contact._id}`} >Edit</Link>
+                        <button onClick={this.onBack} className='details-back-btn'>&#8592; <span>Back</span></button>
+                    </article>
+                    <div className="prev-next-btns">
+                        {['prev', 'next'].map(direction => <Link to={`/contact/${prevNextContactIds[direction]}`} key={direction}>{direction}</Link>)}
                     </div>
-                    <Link className='details-edit-btn' to={`/contact/edit/${contact._id}`} >Edit</Link>
-                    <button onClick={this.onBack} className='details-back-btn'>&#8592; <span>Back</span></button>
-                </article>
-                <div className="prev-next-btns">
-                    {['prev', 'next'].map(direction => <Link to={`/contact/${prevNextContactIds[direction]}`} key={direction}>{direction}</Link>)}
-                </div>
-                <TransferFund contact={contact} />
-                <MoveList contact={contact} />
-            </section>
+                    <TransferFund contact={contact} />
+                    <MoveList contact={contact} />
+                </section>
+            </AnimatedPage>
         )
     }
 }
