@@ -1,3 +1,42 @@
+<!-- TITLE -->
+## Bitcoin App
+<br />
+<div align="center">
+  <a href="https://bitcoin-app.onrender.com/#/">
+    <img src="https://res.cloudinary.com/dipjgyi1r/image/upload/v1674492543/2nd-hand/logo_ahsdry.svg" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Bitcoin App</h3>
+
+  <p align="center">
+<h3><a href='https://bitcoin-app.onrender.com/#/'>You can check out the live site here<a/><h3/>
+    <br />
+</div>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+ <img src="https://res.cloudinary.com/dipjgyi1r/image/upload/v1674596201/2nd-hand/Picture5_vb3bgc.png" alt="screenshot" width="100%" height="100%">
+
+This project is a fullstack React.js application, its a platform where users get 100 coins when signing up, and then can transfer those coins to their contacts. The contacts can also be managed, including the ability to add new ones, edit existing ones, or delete them.you can also see the worth of your coins in BTC (Assumin 1 coin equals 1 USD). You can also see your lasts transactions in the homepage and your last transfers to a spesific contact in the contact page.
+(The site only purpose is to demonstrate developing abilities! the coins dosent have any real value)
+
+<p align="right">(<a href="#title">back to top</a>)</p>
+
+### Built With
+<a href="https://reactjs.org/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/180px-React-icon.svg.png" alt="reactjs" width="40" height="40" style="max-width: 100%">
+     
+  <a href="https://sass-lang.com/">
+    <img src="https://www.svgrepo.com/show/354310/sass.svg" alt="sass" width="40" height="40" style="max-width: 100%">
+  </a>
+
+
+<p align="right">(<a href="#title">back to top</a>)</p>
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
