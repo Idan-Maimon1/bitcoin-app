@@ -4,7 +4,7 @@ import { NavLink, withRouter } from "react-router-dom";
 class _AppHeader extends Component {
 
     state = {
-        navRoutes: ['home', 'contact', 'statistic']
+        navRoutes: ['home', 'contact', 'statistic', 'gamble']
     }
 
     render() {

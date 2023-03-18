@@ -8,6 +8,7 @@ import { ContactPage } from './pages/ContactPage'
 import { StatisticPage } from './pages/StatisticPage'
 import { ContactDetails } from './pages/ContactDetails'
 import { contactEdit } from './pages/contactEdit';
+import { GamblePage } from './pages/GamblePage';
 import { SignUp } from './components/SignUp'
 import { connect } from 'react-redux'
 import { loadUser } from './store/actions/userActions'
@@ -30,6 +31,7 @@ class _App extends Component {
               <Route path='/contact/:id' component={ContactDetails} />
               <Route path='/contact' component={ContactPage} />
               <Route path='/statistic' component={StatisticPage} />
+              <Route path='/gamble' component={GamblePage} />
               <Route path='/' component={HomePage} />
             </Switch>
           </main>

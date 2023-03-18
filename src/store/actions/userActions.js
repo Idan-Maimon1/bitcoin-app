@@ -43,3 +43,14 @@ export function transferCoins(contact, amount) {
         }
     }
 }
+
+export function addCoins(amount) {
+    return async (dispatch, getState) => {
+        try {
+            const user = await userService.addCoins(amount)
+            dispatch({ type: 'SET_USER', user })
+        } catch (err) {
+            console.log('err:', err)
+        }
+    }
+}

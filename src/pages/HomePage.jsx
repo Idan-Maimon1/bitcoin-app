@@ -58,7 +58,7 @@ class _HomePage extends Component {
                   the rates shown on the website calculated as if 1 coin was worth 1 usd)
                 </p>
                 <p>
-                  you currently have {loggedInUser.balance} coins!
+                  you currently have <span className='home-page-balance'>{loggedInUser.balance} coins!</span>
                 </p>
                 <p>
                   thats worth {bitcoinRate} in BTC

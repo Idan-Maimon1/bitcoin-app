@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+@keyframes wheel-modal {
+    0% {
+        transform: scale(0.3);
+        border-radius: 50%;
+    }
+}
+
+.wheel-container {
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    width: 400px;
+    height: 400px;
+
+    .spin-btn {
+        all: unset;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        border-radius: 50%;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #333;
+        letter-spacing: 0.1em;
+        border: 4px solid rgba(0, 0, 0, 0.75);
+        user-select: none;
+        cursor: pointer;
+
+    }
+
+    .wheel-pointer {
+        position: absolute;
+        top: -28px;
+        width: 20px;
+        height: 30px;
+        background-color: #fff;
+        clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+    }
+
+    .wheel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: transform 4s ease-in-out;
+        box-shadow: 0 0 0 5px #333,
+            0 0 0 15px #fff,
+            0 0 0 18px #111;
+
+        .number {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: var(--clr);
+            transform-origin: bottom right;
+            transform: rotate(calc(45deg * var(--i)));
+            clip-path: polygon(0 0, 56% 0, 99% 99%, 0 56%);
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            user-select: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.number span {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: rotate(135deg);
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 40px 30px 0;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+
+    &::after {
+        content: '\20BF';
+        font-size: 0.75em;
+    }
+}
+
+.wheel-modal {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    height: 100vh;
+    width: 100vw;
+    outline: 10px solid #333;
+    animation-name: wheel-modal;
+    animation-duration: 0.5s;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 4vh;
+        font-size: 1.1em;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    button {
+        all: unset;
+        background: #fff;
+        color: #333;
+        outline: 2px solid #333;
+        border-radius: 35%;
+        padding: 5px 10px;
+        margin-left: auto;
+        transition: 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.4);
+        }
+    }
+}

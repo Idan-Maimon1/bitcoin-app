@@ -5,7 +5,8 @@ const KEY = 'user_db'
 export const userService = {
     getUser,
     setUser,
-    addMove
+    addMove,
+    addCoins
 }
 const DemoUser = {
     loggedInUser: {
@@ -56,6 +57,15 @@ function addMove(contact, amount) {
         const userData = storageService.load(KEY)
         userData.loggedInUser.moves.push(move)
         userData.loggedInUser.balance -= amount
+        storageService.store(KEY, userData)
+        resolve(userData.loggedInUser)
+    })
+}
+
+function addCoins( amount) {
+    return new Promise((resolve, reject) => {
+        const userData = storageService.load(KEY)
+        userData.loggedInUser.balance += amount
         storageService.store(KEY, userData)
         resolve(userData.loggedInUser)
     })

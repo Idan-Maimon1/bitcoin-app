@@ -21,7 +21,7 @@ class _TransferFund extends Component {
     onTransferCoins = async (ev) => {
         ev.preventDefault()
         this.props.transferCoins(this.props.contact, this.state.amount)
-        this.state.amount = ''
+        this.setState({ amount: '' })
     }
 
     render() {
